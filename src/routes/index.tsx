@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A luxury wedding invitation for the marriage of Moshira & Mostafa at La Reine - White Plaza, Cairo — July 10, 2026.",
+          "A luxury wedding invitation for the marriage of Moshira & Mostafa at La Reine Hall, Cairo — July 10, 2026.",
       },
     ],
     links: [

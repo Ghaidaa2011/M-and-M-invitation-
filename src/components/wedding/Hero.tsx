@@ -59,7 +59,7 @@ export function Hero() {
             <span className="text-xs uppercase tracking-[0.5em] text-rose-deep">10 · 7 · 2026</span>
           </div>
           <p className="mt-6 text-sm uppercase tracking-[0.4em] text-muted-foreground">
-            La Reine · White plaza
+            La Reine Hall
           </p>
         </motion.div>
 

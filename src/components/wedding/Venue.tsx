@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin, ArrowUpRight } from "lucide-react";
-import venue from "@/assets/venue.jpg";
+import venue from "@/assets/hall.jpeg";
 
 export function Venue() {
   return (
@@ -15,7 +15,7 @@ export function Venue() {
         >
           <img
             src={venue}
-            alt="La Reine - White Plaza ceremony hall"
+            alt="La Reine ceremony hall"
             width={1920}
             height={1080}
             loading="lazy"
@@ -37,7 +37,7 @@ export function Venue() {
           transition={{ duration: 1, delay: 0.2 }}
         >
           <p className="text-xs uppercase tracking-[0.4em] text-rose-deep">The Venue</p>
-          <h2 className="mt-4 text-5xl text-primary">La Reine - White Plaza</h2>
+          <h2 className="mt-4 text-5xl text-primary">La Reine Hall</h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
             An elegant celebration venue in the heart of New Cairo. Join us for a magical evening
             filled with love, music, and unforgettable memories.
