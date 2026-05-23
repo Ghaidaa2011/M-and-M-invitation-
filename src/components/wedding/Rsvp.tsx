@@ -6,13 +6,39 @@ export function Rsvp() {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = (e: FormEvent) => {
+  const FORM_ENDPOINT = import.meta.env.VITE_RSVP_ENDPOINT ?? "https://formspree.io/f/mykvpklj";
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+
+    try {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
       setLoading(false);
-      setOpen(true);
-    }, 900);
+
+      if (res.ok) {
+        form.reset();
+        setOpen(true);
+      } else {
+        const data = await res.json().catch(() => ({}));
+        console.error("RSVP submit error", data);
+        alert("Unable to send RSVP. Please try again later.");
+      }
+    } catch (err) {
+      console.error(err);
+      setLoading(false);
+      alert("Unable to send RSVP. Please try again later.");
+    }
   };
 
   const input =
@@ -24,9 +50,7 @@ export function Rsvp() {
         <div className="text-center">
           <p className="font-script text-2xl text-rose">kindly reply</p>
           <h2 className="mt-3 text-4xl text-primary md:text-5xl">RSVP</h2>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Please respond by August 1st, 2026
-          </p>
+          <p className="mt-4 text-sm text-muted-foreground">Please respond by August 1st, 2026</p>
         </div>
 
         <motion.form
@@ -37,17 +61,30 @@ export function Rsvp() {
           transition={{ duration: 0.9 }}
           className="glass mt-12 space-y-5 rounded-[2rem] p-8 md:p-12"
         >
-          <input className={input} placeholder="Your full name" required />
-          <input className={input} type="email" placeholder="Email" required />
+          <input name="name" className={input} placeholder="Your full name" required />
+          <input name="email" className={input} type="email" placeholder="Email" required />
           <div className="grid gap-5 md:grid-cols-2">
-            <select className={input} defaultValue="">
-              <option value="" disabled>Will you attend?</option>
+            <select name="attendance" className={input} defaultValue="" required>
+              <option value="" disabled>
+                Will you attend?
+              </option>
               <option>Joyfully accepts</option>
               <option>Regretfully declines</option>
             </select>
-            <input className={input} type="number" min={1} max={5} placeholder="Guests" />
+            <input
+              name="guests"
+              className={input}
+              type="number"
+              min={1}
+              max={5}
+              placeholder="Guests"
+            />
           </div>
-          <textarea className={`${input} min-h-32 resize-none`} placeholder="A message for the couple…" />
+          <textarea
+            name="message"
+            className={`${input} min-h-32 resize-none`}
+            placeholder="A message for the couple…"
+          />
 
           <motion.button
             whileHover={{ scale: 1.02 }}
@@ -90,7 +127,9 @@ export function Rsvp() {
                 <Check className="h-10 w-10" />
               </motion.div>
               <h3 className="mt-6 text-3xl text-primary">Thank you</h3>
-              <p className="font-script mt-2 text-2xl text-rose">we cannot wait to celebrate with you</p>
+              <p className="font-script mt-2 text-2xl text-rose">
+                we cannot wait to celebrate with you
+              </p>
               <button
                 onClick={() => setOpen(false)}
                 className="mt-8 rounded-full border border-border px-6 py-3 text-xs uppercase tracking-[0.3em] text-primary transition hover:bg-blush/40"
