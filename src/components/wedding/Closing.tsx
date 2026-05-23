@@ -39,7 +39,7 @@ export function Closing() {
         </motion.h2>
         <div className="divider-ornament mt-12">✦</div>
         <p className="mt-6 text-xs uppercase tracking-[0.5em] text-muted-foreground">
-          September Seventh · Two Thousand Twenty Six
+          July Tenth · Two Thousand Twenty Six
         </p>
       </div>
     </section>

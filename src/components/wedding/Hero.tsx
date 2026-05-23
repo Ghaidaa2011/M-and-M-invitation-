@@ -56,12 +56,10 @@ export function Hero() {
           className="mt-10"
         >
           <div className="divider-ornament">
-            <span className="text-xs uppercase tracking-[0.5em] text-rose-deep">
-              VII · IX · MMXXVI
-            </span>
+            <span className="text-xs uppercase tracking-[0.5em] text-rose-deep">10 · 7 · 2026</span>
           </div>
           <p className="mt-6 text-sm uppercase tracking-[0.4em] text-muted-foreground">
-            Château de Beaulieu · Provence
+            La Reine · White plaza
           </p>
         </motion.div>
 

@@ -15,7 +15,7 @@ export function Venue() {
         >
           <img
             src={venue}
-            alt="Château de Beaulieu ceremony hall"
+            alt="La Reine - White Plaza ceremony hall"
             width={1920}
             height={1080}
             loading="lazy"
@@ -25,7 +25,7 @@ export function Venue() {
           <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
             <div className="text-primary-foreground">
               <p className="font-script text-xl">where it begins</p>
-              <p className="text-xs uppercase tracking-[0.4em]">Provence, France</p>
+              <p className="text-xs uppercase tracking-[0.4em]">Cairo, Egypt</p>
             </div>
           </div>
         </motion.div>
@@ -37,17 +37,17 @@ export function Venue() {
           transition={{ duration: 1, delay: 0.2 }}
         >
           <p className="text-xs uppercase tracking-[0.4em] text-rose-deep">The Venue</p>
-          <h2 className="mt-4 text-5xl text-primary">Château de Beaulieu</h2>
+          <h2 className="mt-4 text-5xl text-primary">La Reine - White Plaza</h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            A 17th-century estate nestled between lavender fields and ancient olive
-            groves. Ceremony in the rose garden at sunset, reception under the stars.
+            An elegant celebration venue in the heart of New Cairo. Join us for a magical evening
+            filled with love, music, and unforgettable memories.
           </p>
           <div className="mt-8 flex items-center gap-3 text-sm text-rose-deep">
             <MapPin className="h-4 w-4" />
-            <span>Chemin des Oliviers, 13100 Aix-en-Provence</span>
+            <span>التجمع الخامس - محور المشير طنطاوي - دار ضباط الوقود - فندق راماچ</span>
           </div>
           <a
-            href="https://maps.google.com/?q=Aix-en-Provence"
+            href="https://maps.app.goo.gl/qQJpkHGkRUhSq4h59?g_st=aw"
             target="_blank"
             rel="noreferrer"
             className="glass glow-hover mt-8 inline-flex items-center gap-3 rounded-full px-7 py-4 text-sm uppercase tracking-[0.3em] text-primary"
